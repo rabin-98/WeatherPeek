@@ -2,7 +2,7 @@
 const { Console } = require("console");
 const express= require("express");
 const https = require('https');
-
+const PORT = process.env.PORT || 3000
 const bodyParser = require("body-parser");
 const { stringify } = require("querystring");
 
@@ -68,7 +68,7 @@ app.get("/search",(req,res)=>{
          feel=weatherData.main.feels_like;
          humid=weatherData.main.humidity;
          pressure= weatherData.main.pressure;
-         
+         res.redirect("/results")
          
        
 
@@ -89,7 +89,7 @@ app.get("/search",(req,res)=>{
      
 
 
-app.listen(3000,()=>{
+app.listen(PORT,()=>{
 
-    console.log("server started at port 3000");
+    console.log(`server started at port ${PORT}`);
 })
